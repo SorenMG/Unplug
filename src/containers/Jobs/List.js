@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Layout from '../../components/Jobs/JobPosting';
+import Layout from '../../components/Jobs/List';
 
 class JobPostingContainer extends Component {
+  constructor(props) {
+    super();
+
+    this.state = {
+      error: null,
+      loading: false,
+    };
+  }
   /**
    * Render
    */
   render = () => {
     const { listData } = this.props;
-    return <Layout listData={listData} />;
+    const { loading, error } = this.state;
+    return <Layout listData={listData} loading={loading} error={error} />;
   };
 }
 

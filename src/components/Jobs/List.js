@@ -1,31 +1,27 @@
 import React from 'react';
-import {
-  List,
-  ListItem,
-  Thumbnail,
-  Body,
-  Right,
-  Container,
-  Content,
-  Text,
-  Left,
-} from 'native-base';
+import { ListItem, Thumbnail, Body, Right, Container, Text, Left } from 'native-base';
 import { FlatList } from 'react-native';
 import { Error } from '../UI';
 import { errorMessages } from '../../constants/messages';
+import { Actions } from 'react-native-router-flux';
 
-const JobPosting = ({ listData }) => {
+const JobPosting = ({ error, loading, listData }) => {
+  if (error) {
+    return <Error content={error} tryAgain={reFetch} />;
+  }
+
   if (listData.length < 1) {
     return <Error content={errorMessages.articlesEmpty} />;
   }
-  console.log(listData);
+  console.log(Actions);
   return (
     <Container>
       <FlatList
         data={listData}
+        refreshing={loading}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <ListItem thumbnail>
+          <ListItem thumbnail onPress={() => Actions.jobsSingle({ job: item })}>
             <Left>
               <Thumbnail square source={{ uri: item.imageUri }} style={{ borderRadius: 10 }} />
             </Left>
