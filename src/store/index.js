@@ -23,6 +23,7 @@ const configureStore = () => {
   });
 
   const persistor = getPersistor();
+
   const { dispatch } = store;
 
   return { persistor, store, dispatch };
