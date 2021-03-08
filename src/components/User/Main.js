@@ -1,6 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Content, Text, Separator, ListItem, View } from 'native-base';
+import {
+  Container,
+  Content,
+  Text,
+  Separator,
+  ListItem,
+  View,
+  Left,
+  Body,
+  Right,
+  Thumbnail,
+} from 'native-base';
 import { Loading, Error } from '../UI';
 import { errorMessages } from '../../constants/messages';
 import Constants from 'expo-constants';
@@ -62,6 +73,29 @@ const MainUser = ({ error, loading }) => {
   return (
     <Container>
       <Content style={{ backgroundColor: '#F0EFF5' }}>
+        <Separator>
+          <Text>Upcomming work</Text>
+        </Separator>
+        <View style={{ backgroundColor: '#FFFFFF' }}>
+          <ListItem thumbnail last>
+            <Left>
+              <Thumbnail
+                square
+                source={{ uri: 'https://www.faerch.com/Content/2270314.png?maxwidth=800' }}
+                style={{ borderRadius: 10 }}
+              />
+            </Left>
+            <Body>
+              <Text>Titel</Text>
+              <Text note>Beskrivelse</Text>
+            </Body>
+            <Right>
+              <Text note>120</Text>
+
+              <Text note>pr. time</Text>
+            </Right>
+          </ListItem>
+        </View>
         {listBuilder(SettingsStructure)}
         <Separator />
         <View style={{ backgroundColor: '#FFFFFF' }}>

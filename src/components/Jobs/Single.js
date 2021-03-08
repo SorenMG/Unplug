@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import {
   Container,
   Content,
-  Card,
-  CardItem,
-  Grid,
-  Row,
   H1,
   Text,
   View,
@@ -25,6 +21,12 @@ import { errorMessages } from '../../constants/messages';
 import MapView from 'react-native-maps';
 import { Dimensions } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import MapViewDirections from 'react-native-maps-directions';
+import Constants from 'expo-constants';
+
+const GOOGLE_MAPS_APIKEY = 'AIzaSyCAdZ4mP1LWq9tGE598Boy_mE7CphK6wt0';
+const origin = { latitude: 37.3318456, longitude: -122.0296002 };
+const destination = { latitude: 37.771707, longitude: -122.4053769 };
 
 const JobsSingle = ({ error, loading, job, reFetch, ...props }) => {
   if (error) {
@@ -35,17 +37,24 @@ const JobsSingle = ({ error, loading, job, reFetch, ...props }) => {
     return <Loading content={loading} />;
   }
 
+  console.log(GOOGLE_MAPS_APIKEY);
+
   return (
     <Container>
       <Content>
         <MapView
           showsUserLocation
-          followsUserLocation
           style={{
             width: Dimensions.get('window').width,
             height: Dimensions.get('window').width,
           }}
-        />
+        >
+          <MapViewDirections
+            origin={origin}
+            destination={destination}
+            apikey={GOOGLE_MAPS_APIKEY}
+          />
+        </MapView>
         <View
           style={{
             top: -30,
@@ -65,6 +74,17 @@ const JobsSingle = ({ error, loading, job, reFetch, ...props }) => {
               </Left>
             </Item>
           </View>
+          <Item style={{ padding: 16, justifyContent: 'space-around' }}>
+            <Button style={{ backgroundColor: 'black', width: 55, height: 55, borderRadius: 50 }}>
+              <Icon active name="call" />
+            </Button>
+            <Button style={{ backgroundColor: 'black', width: 55, height: 55, borderRadius: 50 }}>
+              <Icon active name="ios-chatboxes" />
+            </Button>
+            <Button style={{ backgroundColor: 'black', width: 55, height: 55, borderRadius: 50 }}>
+              <Icon active name="md-locate" />
+            </Button>
+          </Item>
           <View style={{ paddingTop: 16 }}>
             <ListItem icon>
               <Left>
@@ -105,7 +125,7 @@ const JobsSingle = ({ error, loading, job, reFetch, ...props }) => {
                 <Text>Nellikevej 10B, 8240 Risskov</Text>
               </Right>
             </ListItem>
-            <ListItem icon>
+            <ListItem icon last>
               <Left>
                 <Button style={{ backgroundColor: '#000000' }}>
                   <Icon active name="briefcase" />
