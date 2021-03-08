@@ -6,7 +6,7 @@ import Layout from '../../components/Jobs/Single';
 class JobsSingleContainer extends Component {
   constructor() {
     super();
-    this.state = { loading: false, error: null, job: {} };
+    this.state = { loading: false, error: null, id: null };
   }
 
   /**
@@ -14,19 +14,25 @@ class JobsSingleContainer extends Component {
    */
   render = () => {
     const { loading, error } = this.state;
-    const { job } = this.props;
+    const { id, listData } = this.props;
+    const job = listData.filter((item) => item.id === id)[0];
 
     return <Layout loading={loading} error={error} job={job} />;
   };
 }
 
-JobsSingleContainer.propTypes = {};
+JobsSingleContainer.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  listData: PropTypes.array(PropTypes.shape()),
+};
 
 JobsSingleContainer.defaultProps = {
   id: null,
 };
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => ({
+  listData: state.jobs.listData,
+});
 
 const mapDispatchToProps = () => ({});
 

@@ -19,22 +19,9 @@ const JobPosting = ({ error, loading, listData }) => {
         data={listData}
         refreshing={loading}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <ListItem thumbnail onPress={() => Actions.jobsSingle({ job: item, title: item.title })}>
-            <Left>
-              <Thumbnail square source={{ uri: item.imageUri }} style={{ borderRadius: 10 }} />
-            </Left>
-            <Body>
-              <Text>{item.title}</Text>
-              <Text note>{item.description}</Text>
-            </Body>
-            <Right>
-              <Text note>{item.price}</Text>
-
-              <Text note>pr. time</Text>
-            </Right>
-          </ListItem>
-        )}
+        renderItem={({ item }) =>
+          JobCell(item, () => Actions.jobsSingle({ id: item.id, title: item.title }))
+        }
       />
     </Container>
   );

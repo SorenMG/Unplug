@@ -37,8 +37,6 @@ const JobsSingle = ({ error, loading, job, reFetch, ...props }) => {
     return <Loading content={loading} />;
   }
 
-  console.log(GOOGLE_MAPS_APIKEY);
-
   return (
     <Container>
       <Content>
