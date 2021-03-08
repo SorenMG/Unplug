@@ -22,6 +22,7 @@ const Index = (
           key="userPage"
           title="User Page"
           icon={() => <Icon name="person" {...DefaultProps.icons} />}
+          {...DefaultProps.navbarProps}
         >
           <Scene key="userPage" component={UserPage} />
         </Stack>
