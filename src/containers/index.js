@@ -9,3 +9,4 @@ export { default as JobSingle } from './Jobs/Single';
 
 // User
 export { default as UserPage } from './User/Main';
+export { default as BalancePage } from './User/Balance';

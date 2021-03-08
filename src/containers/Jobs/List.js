@@ -17,8 +17,15 @@ class JobPostingContainer extends Component {
    */
   render = () => {
     const { listData } = this.props;
+    const { customListData } = this.props;
     const { loading, error } = this.state;
-    return <Layout listData={listData} loading={loading} error={error} />;
+    return (
+      <Layout
+        listData={customListData == undefined ? listData : customListData}
+        loading={loading}
+        error={error}
+      />
+    );
   };
 }
 

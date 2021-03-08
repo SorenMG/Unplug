@@ -3,7 +3,7 @@ import { Scene, Tabs, Stack } from 'react-native-router-flux';
 import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 
-import { JobPosting, JobSingle, UserPage } from '../containers';
+import { BalancePage, JobPosting, JobSingle, UserPage } from '../containers';
 
 const Index = (
   <Stack hideNavBar>
@@ -25,6 +25,9 @@ const Index = (
           {...DefaultProps.navbarProps}
         >
           <Scene key="userPage" component={UserPage} />
+          <Scene title="Saldo" key="balancePage" component={BalancePage} />
+          <Scene title="Former work" key="formerWork" component={JobPosting} />
+          <Scene key="jobsSingle" component={JobSingle} />
         </Stack>
       </Tabs>
     </Scene>

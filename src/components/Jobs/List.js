@@ -13,7 +13,6 @@ const JobPosting = ({ error, loading, listData }) => {
   if (listData.length < 1) {
     return <Error content={errorMessages.articlesEmpty} />;
   }
-  console.log(Actions);
   return (
     <Container>
       <FlatList
