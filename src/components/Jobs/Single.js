@@ -16,6 +16,7 @@ import {
   Right,
   Icon,
   Button,
+  H3,
   ListItem,
 } from 'native-base';
 import { Loading, Error } from '../UI';
@@ -36,6 +37,8 @@ const JobsSingle = ({ error, loading, job, reFetch }) => {
     <Container>
       <Content>
         <MapView
+          showsUserLocation
+          followsUserLocation
           style={{
             width: Dimensions.get('window').width,
             height: Dimensions.get('window').width,
@@ -53,17 +56,22 @@ const JobsSingle = ({ error, loading, job, reFetch }) => {
             <Item style={{ paddingVertical: 16 }}>
               <H1>{job.title}</H1>
             </Item>
-            <Text style={{ paddingTop: 16 }}>{job.description}</Text>
+            <Item style={{ paddingVertical: 16 }}>
+              <Left>
+                <H3 style={{ fontSize: 16, fontWeight: 'bold' }}>Description</H3>
+                <Text>{job.description}</Text>
+              </Left>
+            </Item>
           </View>
           <View style={{ paddingTop: 16 }}>
             <ListItem icon>
               <Left>
-                <Button style={{ backgroundColor: '#FF9501' }}>
+                <Button style={{ backgroundColor: '#000000' }}>
                   <Icon active name="wallet" />
                 </Button>
               </Left>
               <Body>
-                <Text>Airplane Mode</Text>
+                <Text>Hourly pay</Text>
               </Body>
               <Right>
                 <Text>120 pr. time</Text>
@@ -71,15 +79,28 @@ const JobsSingle = ({ error, loading, job, reFetch }) => {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Button style={{ backgroundColor: '#FF9501' }}>
+                <Button style={{ backgroundColor: '#000000' }}>
                   <Icon active name="time" />
                 </Button>
               </Left>
               <Body>
-                <Text>Airplane Mode</Text>
+                <Text>Time</Text>
               </Body>
               <Right>
                 <Text>15-20</Text>
+              </Right>
+            </ListItem>
+            <ListItem icon>
+              <Left>
+                <Button style={{ backgroundColor: '#000000' }}>
+                  <Icon active name="md-locate" />
+                </Button>
+              </Left>
+              <Body>
+                <Text>Address</Text>
+              </Body>
+              <Right>
+                <Text>Nellikevej 10B, 8240 Risskov</Text>
               </Right>
             </ListItem>
           </View>

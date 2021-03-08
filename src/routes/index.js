@@ -3,7 +3,7 @@ import { Scene, Tabs, Stack } from 'react-native-router-flux';
 import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 
-import { JobPosting, JobSingle } from '../containers';
+import { JobPosting, JobSingle, UserPage } from '../containers';
 
 const Index = (
   <Stack hideNavBar>
@@ -17,6 +17,13 @@ const Index = (
         >
           <Scene key="jobPostings" component={JobPosting} />
           <Scene key="jobsSingle" component={JobSingle} />
+        </Stack>
+        <Stack
+          key="userPage"
+          title="User Page"
+          icon={() => <Icon name="person" {...DefaultProps.icons} />}
+        >
+          <Scene key="userPage" component={UserPage} />
         </Stack>
       </Tabs>
     </Scene>
