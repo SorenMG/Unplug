@@ -20,7 +20,7 @@ const JobPosting = ({ error, loading, listData }) => {
         refreshing={loading}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <ListItem thumbnail onPress={() => Actions.jobsSingle({ job: item })}>
+          <ListItem thumbnail onPress={() => Actions.jobsSingle({ job: item, title: item.title })}>
             <Left>
               <Thumbnail square source={{ uri: item.imageUri }} style={{ borderRadius: 10 }} />
             </Left>

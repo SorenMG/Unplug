@@ -24,11 +24,6 @@ const SettingsStructure = [
         title: '4571 4733 2066 3628',
         onPress: () => console.log('Credit Card'),
       },
-      {
-        type: 'arrow',
-        title: 'add card',
-        icon: 'plus',
-      },
     ],
   },
 ];

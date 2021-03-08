@@ -18,13 +18,15 @@ import {
   Button,
   H3,
   ListItem,
+  Footer,
 } from 'native-base';
 import { Loading, Error } from '../UI';
 import { errorMessages } from '../../constants/messages';
 import MapView from 'react-native-maps';
 import { Dimensions } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-const JobsSingle = ({ error, loading, job, reFetch }) => {
+const JobsSingle = ({ error, loading, job, reFetch, ...props }) => {
   if (error) {
     return <Error content={error} tryAgain={reFetch} />;
   }
@@ -103,9 +105,42 @@ const JobsSingle = ({ error, loading, job, reFetch }) => {
                 <Text>Nellikevej 10B, 8240 Risskov</Text>
               </Right>
             </ListItem>
+            <ListItem icon>
+              <Left>
+                <Button style={{ backgroundColor: '#000000' }}>
+                  <Icon active name="briefcase" />
+                </Button>
+              </Left>
+              <Body>
+                <Text>Task</Text>
+              </Body>
+              <Right>
+                <Text>Productionworker</Text>
+              </Right>
+            </ListItem>
           </View>
         </View>
       </Content>
+      <Footer>
+        <Button
+          rounded
+          dark
+          style={{
+            margin: 8,
+            marginHorizontal: 32,
+            flex: 1,
+            justifyContent: 'center',
+          }}
+        >
+          <Text
+            style={{
+              fontWeight: 'bold',
+            }}
+          >
+            Sign up
+          </Text>
+        </Button>
+      </Footer>
     </Container>
   );
 };

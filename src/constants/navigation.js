@@ -11,12 +11,12 @@ export default {
     // backButtonTintColor: Colors.textColor,
   },
 
-  // tabProps: {
-  //   swipeEnabled: false,
-  //   activeBackgroundColor: 'rgba(255,255,255,0.1)',
-  //   inactiveBackgroundColor: Colors.brandPrimary,
-  //   tabBarStyle: { backgroundColor: Colors.brandPrimary },
-  // },
+  tabProps: {
+    swipeEnabled: false,
+    activeBackgroundColor: '#F0EFF5',
+    // inactiveBackgroundColor: Colors.brandPrimary,
+    // tabBarStyle: { backgroundColor: Colors.brandPrimary },
+  },
 
   // icons: {
   //   style: { color: 'white', height: 30, width: 30 },

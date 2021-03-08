@@ -20,7 +20,7 @@ const SettingsStructure = [
       },
       {
         type: 'arrow',
-        icon: 'suitcase',
+        icon: 'briefcase',
         title: 'Former work',
         onPress: () =>
           Actions.formerWork({

@@ -16,7 +16,7 @@ const Index = (
           {...DefaultProps.navbarProps}
         >
           <Scene key="jobPostings" component={JobPosting} />
-          <Scene key="jobsSingle" component={JobSingle} />
+          <Scene key="jobsSingle" hideTabBar={true} component={JobSingle} />
         </Stack>
         <Stack
           key="userPage"
