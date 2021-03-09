@@ -4,6 +4,7 @@ import { FlatList } from 'react-native';
 import { Error } from '../UI';
 import { errorMessages } from '../../constants/messages';
 import { Actions } from 'react-native-router-flux';
+import JobCell from './JobCell';
 
 const JobPosting = ({ error, loading, listData }) => {
   if (error) {
