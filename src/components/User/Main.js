@@ -35,16 +35,7 @@ const SettingsStructure = [
         title: 'Former work',
         onPress: () =>
           Actions.formerWork({
-            customListData: [
-              {
-                id: 0,
-                title: 'Arla',
-                description: 'Arbejde med ostindpakning',
-                price: 150,
-                imageUri:
-                  'https://pbs.twimg.com/profile_images/466877827720024066/1_wqAEZU_400x400.png',
-              },
-            ],
+            filter: (item) => item.title === 'Faerch Plast',
           }),
       },
     ],

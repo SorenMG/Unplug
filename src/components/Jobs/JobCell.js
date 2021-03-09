@@ -12,7 +12,6 @@ const JobCell = (item, onPress) => (
     </Body>
     <Right>
       <Text note>{item.price}</Text>
-
       <Text note>pr. time</Text>
     </Right>
   </ListItem>
