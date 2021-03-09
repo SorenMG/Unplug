@@ -22,8 +22,8 @@ class JobsSingleContainer extends Component {
 }
 
 JobsSingleContainer.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  listData: PropTypes.array(PropTypes.shape()),
+  id: PropTypes.number,
+  listData: PropTypes.array,
 };
 
 JobsSingleContainer.defaultProps = {

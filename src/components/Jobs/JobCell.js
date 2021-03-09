@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListItem, Thumbnail, Body, Right, Text, Left } from 'native-base';
 
-const JobCell = ({ item, onPress }) => (
+const JobCell = (item, onPress) => (
   <ListItem thumbnail onPress={onPress}>
     <Left>
       <Thumbnail square source={{ uri: item.imageUri }} style={{ borderRadius: 10 }} />
