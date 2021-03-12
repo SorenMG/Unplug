@@ -16,23 +16,18 @@ class JobPostingContainer extends Component {
    * Render
    */
   render = () => {
-    const { listData, filter } = this.props;
+    const { listData } = this.props;
     const { loading, error } = this.state;
 
-    const data = listData.filter(filter);
-
-    return <Layout listData={data} loading={loading} error={error} />;
+    return <Layout listData={listData} loading={loading} error={error} />;
   };
 }
 
 JobPostingContainer.propTypes = {
   listData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  filter: PropTypes.func,
 };
 
-JobPostingContainer.defaultProps = {
-  filter: () => true,
-};
+JobPostingContainer.defaultProps = {};
 
 const mapStateToProps = (state) => ({
   listData: state.jobs.listData,

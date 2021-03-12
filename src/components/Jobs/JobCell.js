@@ -1,19 +1,23 @@
 import React from 'react';
-import { ListItem, Thumbnail, Body, Right, Text, Left } from 'native-base';
+import { ListItem, Thumbnail, Body, Right, Text, Left, Button } from 'native-base';
+import { View } from 'react-native';
 
 const JobCell = (item, onPress) => (
-  <ListItem thumbnail onPress={onPress}>
+  <ListItem thumbnail noBorder onPress={onPress} style={{ height: 85 }}>
     <Left>
-      <Thumbnail square source={{ uri: item.imageUri }} style={{ borderRadius: 10 }} />
+      <Thumbnail square source={{ uri: item.picture }} style={{ borderRadius: 100 }} />
     </Left>
     <Body>
-      <Text>{item.title}</Text>
-      <Text note>{item.description}</Text>
+      <Text style={{ fontWeight: '500' }}>{item.name}</Text>
+      <View style={{ flexDirection: 'row', paddingTop: 2, paddingRight: 16 }}>
+        <Button style={{ flex: 1, marginRight: 8, justifyContent: 'center', height: 40 }}>
+          <Text style={{ fontWeight: 'bold' }}>Accept request</Text>
+        </Button>
+        <Button style={{ flex: 1, justifyContent: 'center', height: 40 }}>
+          <Text style={{ fontWeight: 'bold' }}>Remove</Text>
+        </Button>
+      </View>
     </Body>
-    <Right>
-      <Text note>{item.price}</Text>
-      <Text note>pr. time</Text>
-    </Right>
   </ListItem>
 );
 
