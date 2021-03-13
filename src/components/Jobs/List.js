@@ -1,12 +1,12 @@
 import React from 'react';
-import { ListItem, Thumbnail, Body, Right, Container, Text, Left, Header, H1 } from 'native-base';
+import { Container, Text, Left, Header, H1, Button } from 'native-base';
 import { FlatList } from 'react-native';
 import { Error } from '../UI';
 import { errorMessages } from '../../constants/messages';
-import { Actions } from 'react-native-router-flux';
+import { ActionConst, Actions } from 'react-native-router-flux';
 import JobCell from './JobCell';
 
-const JobPosting = ({ error, loading, listData }) => {
+const JobPosting = ({ error, loading, listData, reFetch }) => {
   if (error) {
     return <Error content={error} tryAgain={reFetch} />;
   }
@@ -31,6 +31,9 @@ const JobPosting = ({ error, loading, listData }) => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => JobCell(item.from)}
       />
+      <Button onPress={() => Actions.login({ type: ActionConst.RESET })}>
+        <Text>Back</Text>
+      </Button>
     </Container>
   );
 };

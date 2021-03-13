@@ -1,24 +1,24 @@
 import React from 'react';
-import { Scene, Tabs, Stack } from 'react-native-router-flux';
+import { Scene, Tabs, Stack, ActionConst } from 'react-native-router-flux';
 import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 
-import { BalancePage, JobPosting, JobSingle, UserPage } from '../containers';
+import { JobPosting, LoginPage } from '../containers';
 
 const Index = (
-  <Stack hideNavBar>
-    <Scene hideNavBar>
-      <Tabs key="tabbar" swipeEnabled type="replace" showLabel={false} {...DefaultProps.tabProps}>
-        <Stack
-          hideNavBar
-          key="jobpostings"
-          icon={() => <Icon name="list" {...DefaultProps.icons} />}
-          {...DefaultProps.navbarProps}
-        >
-          <Scene key="jobPostings" component={JobPosting} />
-        </Stack>
-      </Tabs>
-    </Scene>
+  <Stack hideNavBar key="root">
+    <Stack hideNavBar key="login" {...DefaultProps.navbarProps}>
+      <Scene key="login" component={LoginPage}></Scene>
+    </Stack>
+    <Stack
+      hideNavBar
+      type={ActionConst.RESET}
+      key="main"
+      icon={() => <Icon name="list" {...DefaultProps.icons} />}
+      {...DefaultProps.navbarProps}
+    >
+      <Scene key="main" component={JobPosting} />
+    </Stack>
   </Stack>
 );
 
