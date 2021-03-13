@@ -34,7 +34,7 @@ class FriendRequestsContainer extends Component {
     const { listData } = this.props;
     const { loading, error } = this.state;
 
-    return <Layout listData={listData} loading={loading} error={error} />;
+    return <Layout listData={listData} loading={loading} error={error} reFetch={this.fetchData} />;
   };
 }
 

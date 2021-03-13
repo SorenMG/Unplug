@@ -1,30 +1,34 @@
 import React from 'react';
-import { Container, Text, Left, Header, H1, Button } from 'native-base';
+import { Container } from 'native-base';
 import { FlatList } from 'react-native';
-import { Error } from '../UI';
+import { Error, Header, Loading } from '../UI';
 import { errorMessages } from '../../constants/messages';
-import { ActionConst, Actions } from 'react-native-router-flux';
 import FriendCell from './FriendCell';
-import auth from '../../lib/auth';
+
+const CustomHeader = () => <Header title="Friend Requests" />;
 
 const JobPosting = ({ error, loading, listData, reFetch }) => {
-  // if (error) {
-  //   return <Error content={error} tryAgain={reFetch} />;
-  // }
+  if (error) {
+    return (
+      <Container>
+        <CustomHeader />
+        <Error content={error} tryAgain={reFetch} />
+      </Container>
+    );
+  }
 
-  // if (listData.length < 1) {
-  //   return <Error content={errorMessages.articlesEmpty} />;
-  // }
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (listData.length < 1) {
+    return <Error content={errorMessages.articlesEmpty} />;
+  }
 
   return (
     <Container>
-      <Header style={{ backgroundColor: 'white', marginHorizontal: 16 }}>
-        <Left style={{ marginLeft: -8 }}>
-          <H1 style={{ fontWeight: 'bold' }}>Friend Requests</H1>
-        </Left>
-      </Header>
-
-      {/* <FlatList
+      <CustomHeader />
+      <FlatList
         onScroll={(event) => {
           console.log(event);
         }}
@@ -32,10 +36,7 @@ const JobPosting = ({ error, loading, listData, reFetch }) => {
         refreshing={loading}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => FriendCell(item)}
-      /> */}
-      <Button onPress={() => auth.logout()}>
-        <Text>Back</Text>
-      </Button>
+      />
     </Container>
   );
 };
