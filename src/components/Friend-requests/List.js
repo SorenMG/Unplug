@@ -4,7 +4,7 @@ import { FlatList } from 'react-native';
 import { Error } from '../UI';
 import { errorMessages } from '../../constants/messages';
 import { ActionConst, Actions } from 'react-native-router-flux';
-import JobCell from './JobCell';
+import FriendCell from './FriendCell';
 
 const JobPosting = ({ error, loading, listData, reFetch }) => {
   if (error) {
@@ -29,7 +29,7 @@ const JobPosting = ({ error, loading, listData, reFetch }) => {
         data={listData}
         refreshing={loading}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => JobCell(item.from)}
+        renderItem={({ item }) => FriendCell(item)}
       />
       <Button onPress={() => Actions.login({ type: ActionConst.RESET })}>
         <Text>Back</Text>

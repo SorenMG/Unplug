@@ -12,11 +12,14 @@ class LoginContainer extends Component {
     this.state = { error: null };
   }
 
+  componentDidMount = () => {};
+
   onPressLogin = async () => {
     // Authenticate
     Facebook.logInWithReadPermissionsAsync()
       .then(({ token, type }) => {
         if (type === 'cancel') throw new Error();
+        console.log(token);
         AsyncStorage.setItem('@Auth:token', token);
       }, null)
       .then(() => Actions.main())

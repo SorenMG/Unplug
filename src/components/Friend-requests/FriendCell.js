@@ -1,8 +1,8 @@
 import React from 'react';
-import { ListItem, Thumbnail, Body, Right, Text, Left, Button } from 'native-base';
+import { ListItem, Thumbnail, Body, Text, Left, Button } from 'native-base';
 import { View } from 'react-native';
 
-const JobCell = (item, onPress) => (
+const FriendCell = (item, onPress) => (
   <ListItem thumbnail noBorder onPress={onPress} style={{ height: 85 }}>
     <Left>
       <Thumbnail square source={{ uri: item.picture }} style={{ borderRadius: 100 }} />
@@ -21,4 +21,4 @@ const JobCell = (item, onPress) => (
   </ListItem>
 );
 
-export default JobCell;
+export default FriendCell;

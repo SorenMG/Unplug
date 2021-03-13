@@ -6,6 +6,7 @@ What is the purpose of this app? It is to disconnect you from Facebook without d
 
 - Push notification subscription
 - Event calendar
+- Check if JWT has expired
 
 # Contribution
 

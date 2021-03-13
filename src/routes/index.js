@@ -1,25 +1,29 @@
 import React from 'react';
-import { Scene, Tabs, Stack, ActionConst } from 'react-native-router-flux';
+import { Scene, Stack } from 'react-native-router-flux';
 import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 
-import { JobPosting, LoginPage } from '../containers';
+import { FriendRequests, LoginPage } from '../containers';
 
-const Index = (
-  <Stack hideNavBar key="root">
-    <Stack hideNavBar key="login" {...DefaultProps.navbarProps}>
-      <Scene key="login" component={LoginPage}></Scene>
-    </Stack>
-    <Stack
-      hideNavBar
-      type={ActionConst.RESET}
-      key="main"
-      icon={() => <Icon name="list" {...DefaultProps.icons} />}
-      {...DefaultProps.navbarProps}
-    >
-      <Scene key="main" component={JobPosting} />
-    </Stack>
+/**
+ * Main Screen
+ */
+export const Main = (
+  <Stack
+    hideNavBar
+    key="main"
+    icon={() => <Icon name="list" {...DefaultProps.icons} />}
+    {...DefaultProps.navbarProps}
+  >
+    <Scene key="main" component={FriendRequests} />
   </Stack>
 );
 
-export default Index;
+/**
+ * Auth Screen
+ */
+export const Auth = (
+  <Stack hideNavBar key="login" {...DefaultProps.navbarProps}>
+    <Scene key="login" component={LoginPage}></Scene>
+  </Stack>
+);

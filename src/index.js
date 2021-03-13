@@ -10,14 +10,15 @@ import { Root, StyleProvider } from 'native-base';
 import getTheme from '../native-base-theme/components';
 import theme from '../native-base-theme/variables/commonColor';
 
-import Routes from './routes/index';
+import { Main, Auth } from './routes/index';
 import Loading from './components/UI/Loading';
 import { StatusBar } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { loading: true };
+    this.state = { loading: true, auth: null };
   }
 
   async componentDidMount() {
@@ -25,13 +26,20 @@ class App extends React.Component {
       Ionicons: require('@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.ttf'),
     });
 
+    try {
+      const token = await AsyncStorage.getItem('@Auth:token');
+      this.setState({ auth: true });
+    } catch (err) {
+      this.setState({ auth: false });
+    }
+
     Facebook.initializeAsync();
 
     this.setState({ loading: false });
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, auth } = this.state;
     const { store, persistor } = this.props;
 
     if (loading) {
@@ -45,7 +53,7 @@ class App extends React.Component {
             <StatusBar barStyle={'dark-content'} />
             <StyleProvider style={getTheme(theme)}>
               <Router>
-                <Stack key="root">{Routes}</Stack>
+                <Stack key="root">{auth ? Main : Auth}</Stack>
               </Router>
             </StyleProvider>
           </PersistGate>
