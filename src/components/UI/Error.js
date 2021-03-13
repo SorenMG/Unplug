@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Text, H3, Button, View } from 'native-base';
+import Spacer from './Spacer';
 
 const Error = ({ title, content, tryAgain }) => (
   <Container style={{ flex: 1 }}>
     <View style={{ alignSelf: 'center' }}>
+      <Spacer />
       <H3 style={{ textAlign: 'center' }}>{title}</H3>
       <Text style={{ textAlign: 'center', marginBottom: 20 }}>{content}</Text>
       {tryAgain && (

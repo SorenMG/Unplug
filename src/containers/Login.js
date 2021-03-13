@@ -5,6 +5,7 @@ import Layout from '../components/Login';
 import * as Facebook from 'expo-facebook';
 import { Actions } from 'react-native-router-flux';
 import { AsyncStorage } from 'react-native';
+import Auth from '../lib/auth';
 
 class LoginContainer extends Component {
   constructor() {
@@ -16,12 +17,7 @@ class LoginContainer extends Component {
 
   onPressLogin = async () => {
     // Authenticate
-    Facebook.logInWithReadPermissionsAsync()
-      .then(({ token, type }) => {
-        if (type === 'cancel') throw new Error();
-        console.log(token);
-        AsyncStorage.setItem('@Auth:token', token);
-      }, null)
+    Auth.authenticate()
       .then(() => Actions.main())
       .catch((err) => this.setState({ error: err.message }));
   };

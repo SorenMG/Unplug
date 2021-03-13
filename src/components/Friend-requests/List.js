@@ -5,15 +5,16 @@ import { Error } from '../UI';
 import { errorMessages } from '../../constants/messages';
 import { ActionConst, Actions } from 'react-native-router-flux';
 import FriendCell from './FriendCell';
+import auth from '../../lib/auth';
 
 const JobPosting = ({ error, loading, listData, reFetch }) => {
-  if (error) {
-    return <Error content={error} tryAgain={reFetch} />;
-  }
+  // if (error) {
+  //   return <Error content={error} tryAgain={reFetch} />;
+  // }
 
-  if (listData.length < 1) {
-    return <Error content={errorMessages.articlesEmpty} />;
-  }
+  // if (listData.length < 1) {
+  //   return <Error content={errorMessages.articlesEmpty} />;
+  // }
 
   return (
     <Container>
@@ -22,7 +23,8 @@ const JobPosting = ({ error, loading, listData, reFetch }) => {
           <H1 style={{ fontWeight: 'bold' }}>Friend Requests</H1>
         </Left>
       </Header>
-      <FlatList
+
+      {/* <FlatList
         onScroll={(event) => {
           console.log(event);
         }}
@@ -30,8 +32,8 @@ const JobPosting = ({ error, loading, listData, reFetch }) => {
         refreshing={loading}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => FriendCell(item)}
-      />
-      <Button onPress={() => Actions.login({ type: ActionConst.RESET })}>
+      /> */}
+      <Button onPress={() => auth.logout()}>
         <Text>Back</Text>
       </Button>
     </Container>

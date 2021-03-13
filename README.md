@@ -2,6 +2,10 @@
 
 What is the purpose of this app? It is to disconnect you from Facebook without disconnecting you from your friends.
 
+# 🐞 Bugs
+
+- Authentication navigation
+
 # ✅ Upcomming features
 
 - Push notification subscription
