@@ -18,13 +18,22 @@ const JobPosting = ({ error, loading, listData, reFetch }) => {
   }
 
   if (loading) {
-    return <Loading />;
+    return (
+      <Container>
+        <CustomHeader />
+        <Loading />
+      </Container>
+    );
   }
 
   if (listData.length < 1) {
-    return <Error content={errorMessages.articlesEmpty} />;
+    return (
+      <Container>
+        <CustomHeader />
+        <Error content={errorMessages.articlesEmpty} />
+      </Container>
+    );
   }
-
   return (
     <Container>
       <CustomHeader />

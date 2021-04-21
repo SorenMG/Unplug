@@ -13,7 +13,7 @@ class FriendRequestsContainer extends Component {
     };
   }
 
-  componentDidMount = () => this.fetchData();
+  // componentDidMount = () => this.fetchData();
 
   fetchData = async () => {
     const { fetchData } = this.props;
@@ -31,7 +31,7 @@ class FriendRequestsContainer extends Component {
    * Render
    */
   render = () => {
-    const { listData } = this.props;
+    const { listData, token } = this.props;
     const { loading, error } = this.state;
 
     return <Layout listData={listData} loading={loading} error={error} reFetch={this.fetchData} />;
@@ -47,6 +47,7 @@ FriendRequestsContainer.defaultProps = {};
 
 const mapStateToProps = (state) => ({
   listData: state.requests.listData,
+  token: state.auth.token,
 });
 
 const mapDispatchToProps = (dispatch) => ({

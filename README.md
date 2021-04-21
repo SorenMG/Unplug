@@ -5,6 +5,8 @@ What is the purpose of this app? It is to disconnect you from Facebook without d
 # 🐞 Bugs
 
 - Authentication navigation
+- Show splashscreen when loading
+- Do not show error screen when returning no result
 
 # ✅ Upcomming features
 

@@ -48,7 +48,6 @@ export default {
 
         return dispatch.requests.replace({ data });
       } catch (err) {
-        console.log(err);
         throw HandleErrorMessage(err);
       }
     },
@@ -65,7 +64,6 @@ export default {
      */
     replace(state, payload) {
       const { data } = state;
-      console.log(data);
       return transform(data);
     },
   },
